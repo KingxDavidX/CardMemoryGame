@@ -1,7 +1,10 @@
 package Model;
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 public class ScoreRecord {
     private int score;
@@ -31,10 +34,9 @@ public class ScoreRecord {
     }
 
     public String toString() {
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         StringBuilder sb = new StringBuilder();
-        sb.append(score);
-        sb.append("\n");
-        sb.append(getTime());
+        sb.append("Score: " + score + " | " + dateFormat.format(getTime()) + " |");
         return sb.toString();
     }
 }
