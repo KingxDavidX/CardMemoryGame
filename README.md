@@ -1,6 +1,6 @@
 ![Static Badge](https://img.shields.io/badge/badge_template-change_later-blue)
 
-# Title of Software
+# Card Memory Game
 
 ## Table of Contents
 1. [Description](#description)  
