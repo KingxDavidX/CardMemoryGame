@@ -6,139 +6,139 @@ public enum Card {
     THE_FOOL {
         @Override
         public String toString() {
-            return "\u001B[38;5;123m┌────┐\n│ 0F │\n│ ☼  │\n└────┘ \u001B[0m";
+            return "\u001B[38;5;123m┌────┐\n│ 0F │\n│ ☼  │\n└────┘\u001B[0m";
         }
     },
     THE_MAGICIAN {
         @Override
         public String toString() {
-            return "┌────┐\n│ I  │\n│ ☿  │\n└────┘";
+            return "\u001B[38;5;93m\n┌────┐\n│ I  │\n│ ☿  │\n└────┘\u001B[0m";
         }
     },
     THE_HIGH_PRIESTESS {
         @Override
         public String toString() {
-            return "┌────┐\n│ II │\n│ ☾  │\n└────┘";
+            return "\u001B[38;5;250m\n┌────┐\n│ II │\n│ ☾  │\n└────┘\u001B[0m";
         }
     },
     THE_EMPRESS {
         @Override
         public String toString() {
-            return "┌────┐\n│III │\n│ ♀  │\n└────┘";
+            return "\u001B[38;5;113m┌────┐\n│III │\n│ ♀  │\n└────┘\u001B[0m";
         }
     },
     THE_EMPEROR {
         @Override
         public String toString() {
-            return "┌────┐\n│ IV │\n│ ♂  │\n└────┘";
+            return "┌────┐\n│ IV │\n│ ♂  │\n└────┘\u001B[0m";
         }
     },
     THE_HIEROPHANT {
         @Override
         public String toString() {
-            return "┌────┐\n│ V  │\n│ ✝  │\n└────┘";
+            return "┌────┐\n│ V  │\n│ ✝  │\n└────┘\u001B[0m";
         }
     },
     THE_LOVERS {
         @Override
         public String toString() {
-            return "┌────┐\n│ VI │\n│ ♡  │\n└────┘";
+            return "┌────┐\n│ VI │\n│ ♡  │\n└────┘\u001B[0m";
         }
     },
     THE_CHARIOT {
         @Override
         public String toString() {
-            return "┌────┐\n│VII │\n│ ⚔  │\n└────┘";
+            return "┌────┐\n│VII │\n│ ⚔  │\n└────┘\u001B[0m";
         }
     },
     STRENGTH {
         @Override
         public String toString() {
-            return "┌────┐\n│VIII│\n│ ༄  │\n└────┘";
+            return "┌────┐\n│VIII│\n│ ༄  │\n└────┘\u001B[0m";
         }
     },
     THE_HERMIT {
         @Override
         public String toString() {
-            return "┌────┐\n│ IX │\n│ 🕯  │\n└────┘";
+            return "┌────┐\n│ IX │\n│ 🕯  │\n└────┘\u001B[0m";
         }
     },
     WHEEL_OF_FORTUNE {
         @Override
         public String toString() {
-            return "┌────┐\n│ X  │\n│ ☸  │\n└────┘";
+            return "┌────┐\n│ X  │\n│ ☸  │\n└────┘\u001B[0m";
         }
     },
     JUSTICE {
         @Override
         public String toString() {
-            return "┌────┐\n│ XI │\n│ ⚖  │\n└────┘";
+            return "┌────┐\n│ XI │\n│ ⚖  │\n└────┘\u001B[0m";
         }
     },
     THE_HANGED_MAN {
         @Override
         public String toString() {
-            return "┌────┐\n│XII │\n│ ⛓  │\n└────┘";
+            return "┌────┐\n│XII │\n│ ⛓  │\n└────┘\u001B[0m";
         }
     },
     DEATH {
         @Override
         public String toString() {
-            return "┌────┐\n│XIII│\n│ ☠  │\n└────┘";
+            return "┌────┐\n│XIII│\n│ ☠  │\n└────┘\u001B[0m";
         }
     },
     TEMPERANCE {
         @Override
         public String toString() {
-            return "┌────┐\n│XIV │\n│ ⚗  │\n└────┘";
+            return "┌────┐\n│XIV │\n│ ⚗  │\n└────┘\u001B[0m";
         }
     },
     THE_DEVIL {
         @Override
         public String toString() {
-            return "┌────┐\n│ XV │\n│ ⛧  │\n└────┘";
+            return "┌────┐\n│ XV │\n│ ⛧  │\n└────┘\u001B[0m";
         }
     },
     THE_TOWER {
         @Override
         public String toString() {
-            return "┌────┐\n│XVI │\n│  ⚡︎ │\n└────┘";
+            return "┌────┐\n│XVI │\n│  ⚡︎ │\n└────┘\u001B[0m";
         }
     },
     THE_STAR {
         @Override
         public String toString() {
-            return "┌────┐\n│XVII│\n│ ★  │\n└────┘";
+            return "┌────┐\n│XVII│\n│ ★  │\n└────┘\u001B[0m";
         }
     },
     THE_MOON {
         @Override
         public String toString() {
-            return "┌────┐\n│XVIII│\n│ ☾  │\n└────┘";
+            return "┌────┐\n│XVIII│\n│ ☾  │\n└────┘\u001B[0m";
         }
     },
     THE_SUN {
         @Override
         public String toString() {
-            return "┌────┐\n│XIX │\n│ ☀  │\n└────┘";
+            return "┌────┐\n│XIX │\n│ ☀  │\n└────┘\u001B[0m";
         }
     },
     JUDGEMENT {
         @Override
         public String toString() {
-            return "┌────┐\n│ XX │\n│ ☯  │\n└────┘";
+            return "┌────┐\n│ XX │\n│ ☯  │\n└────┘\u001B[0m";
         }
     },
     THE_WORLD {
         @Override
         public String toString() {
-            return "┌────┐\n│XXI │\n│ 𐀪𐀪 │\n└────┘";
+            return "┌────┐\n│XXI │\n│ 𐀪𐀪 │\n└────┘\u001B[0m";
         }
     },
     HIDDEN {
         @Override
         public String toString() {
-            return "┌────┐\n│    │\n│    │\n└────┘";
+            return "┌────┐\n│    │\n│    │\n└────┘\u001B[0m";
         }
     }
 }
