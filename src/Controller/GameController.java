@@ -11,12 +11,14 @@ import java.util.*;
 public class GameController {
     private Card[][] userView;
     private Card[][] solution;
-    private Difficulty gameDifficulty;
     private int guesses = 0;
 
     public void run() {
-        initializeGame(Difficulty.EASY); // TODO: ask user for desired difficulty
+        Difficulty[] difficulties = Difficulty.values();
+        Difficulty difficulty = Console.getEnumValue("What difficulty would you like?", difficulties, false, Console.TextColor.DEFAULT, Console.TextColor.DEFAULT );
+        initializeGame(difficulty);
         do {
+            clearConsole();
             takeTurn();
         } while(!isWin());
         System.out.println("You win! You beat the game in '" + guesses + "' guesses !");
@@ -73,15 +75,14 @@ public class GameController {
     // lets player make two guesses, reverts user view if not a match
     private void takeTurn() {
         Point[] hand = new Point[2];
-        // TODO: make sure bellow inputs match app theme DONT LET BE OUT OF BOUNDS
         printUserView();
         // take turn TWICE
         for (int i = 0; i < 2; i++) {
             int x;
             int y;
             while (true) {
-                x = Console.getIntInput("Enter x index: ");
-                y = Console.getIntInput("Enter y index: ");
+                x = Console.getIntInput("Enter x index: ",0,solution.length -1 );
+                y = Console.getIntInput("Enter y index: ",0,solution[0].length - 1);
 
                 if (userView[x][y] != Card.HIDDEN) {
                     System.out.println("Cannot select already flipped card!");
@@ -106,11 +107,9 @@ public class GameController {
             userView[hand[0].x][hand[0].y] = Card.HIDDEN;
             userView[hand[1].x][hand[1].y] = Card.HIDDEN;
         }
-        clearConsole();
         guesses++;
     }
     
-    // TODO: fit within console function if possible
     private void printUserView() {
         int rows = solution.length;
         int columbs = solution[0].length;
@@ -145,18 +144,9 @@ public class GameController {
         return true;
     }
 
-    // TODO: FIX THIS
     private void clearConsole() {
-        // clear script from stack overflow
-        try {
-            final String os = System.getProperty("os.name");
-            if (os.contains("windows")) {
-                Runtime.getRuntime().exec("cls");
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        for (int i = 0; i < 1000; i++) {
+            System.out.println();
         }
     }
 }
