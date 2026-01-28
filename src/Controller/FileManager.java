@@ -46,18 +46,17 @@ public class FileManager {
     }
 
     public ArrayList<ScoreRecord> getLeaderboard() {
-        ArrayList<ScoreRecord> records = new ArrayList<>();
-
         try {
             Type listType = new TypeToken<ArrayList<ScoreRecord>>(){}.getType();
-            records = gson.fromJson(new FileReader(filePath), listType);
+            ArrayList<ScoreRecord> records = gson.fromJson(new FileReader(filePath), listType);
+            if (records == null) {
+                return new ArrayList<>();
+            }
+            return records;
         }
         catch (Exception e) {
             System.out.println("Error getting Leaderboard!");
+            return new ArrayList<>();
         }
-        if (records == null || records.size() == 0) {
-            records = new ArrayList<>();
-        }
-        return records;
     }
 }
