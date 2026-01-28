@@ -3,6 +3,7 @@ package Controller;
 import Model.Card;
 import Model.Difficulty;
 import Model.Point;
+import Model.ScoreRecord;
 import View.Console;
 
 import java.io.IOException;
@@ -13,7 +14,14 @@ public class GameController {
     private Card[][] solution;
     private int guesses = 0;
 
+
+
     public void run() {
+        FileManager fileManager = new FileManager();
+        ArrayList<ScoreRecord> scores = fileManager.getLeaderboard();
+        if (scores == null || scores.size() == 0) {
+            scores = new ArrayList<>();
+        }
         Difficulty[] difficulties = Difficulty.values();
         Difficulty difficulty = Console.getEnumValue("What difficulty would you like?", difficulties, false, Console.TextColor.DEFAULT, Console.TextColor.DEFAULT );
         initializeGame(difficulty);
@@ -21,7 +29,10 @@ public class GameController {
             clearConsole();
             takeTurn();
         } while(!isWin());
+        scores.add(new ScoreRecord(calcScore(difficulty)));
         System.out.println("You win! You beat the game in '" + guesses + "' guesses !");
+        printLeaderboard(scores);
+        fileManager.saveLeaderboard(scores);
     }
     
     // sets up all game values
@@ -147,6 +158,36 @@ public class GameController {
     private void clearConsole() {
         for (int i = 0; i < 1000; i++) {
             System.out.println();
+        }
+    }
+
+    private int calcScore(Difficulty difficulty) {
+        int totalPairs = (solution.length * solution[0].length) / 2;
+        int baseScore = totalPairs * 100;
+        int penaltyScore = totalPairs * 10;
+        int difficultyMultiplier = 0;
+
+        switch (difficulty){
+            case EASY:
+                difficultyMultiplier = 1;
+                break;
+            case NORMAL:
+                difficultyMultiplier = 2;
+                break;
+            case HARD:
+                difficultyMultiplier = 3;
+        }
+
+        int score = (baseScore - penaltyScore) * difficultyMultiplier;
+        return Math.max(score, 0);
+    }
+
+    private void printLeaderboard(ArrayList<ScoreRecord> records) {
+        records.sort(Comparator.comparingInt(ScoreRecord::getScore).reversed());
+        int index = 1;
+        System.out.println("----- Leaderboard -----");
+        for (ScoreRecord record : records) {
+            System.out.println(index + ". " + record);
         }
     }
 }

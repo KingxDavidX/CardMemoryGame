@@ -39,7 +39,6 @@ public class FileManager {
             FileWriter fw = new FileWriter(filePath);
             fw.write(json);
             fw.close();
-            System.out.println("Leaderboard saved Successfully!");
         }
         catch (IOException e) {
             System.out.println("Error saving leaderboard!");
@@ -55,6 +54,9 @@ public class FileManager {
         }
         catch (Exception e) {
             System.out.println("Error getting Leaderboard!");
+        }
+        if (records == null || records.size() == 0) {
+            records = new ArrayList<>();
         }
         return records;
     }
