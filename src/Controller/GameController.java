@@ -164,7 +164,7 @@ public class GameController {
     private int calcScore(Difficulty difficulty) {
         int totalPairs = (solution.length * solution[0].length) / 2;
         int baseScore = totalPairs * 100;
-        int penaltyScore = totalPairs * 10;
+        int penaltyScore = (guesses - totalPairs) * 10;
         int difficultyMultiplier = 0;
 
         switch (difficulty){
